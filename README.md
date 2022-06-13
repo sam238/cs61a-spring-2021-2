@@ -1,10 +1,10 @@
-# CS61A-Work
+# CS61A-Spring2021
 
 Record learning CS61A(Spring 2021).
 
 ## Table of Contents
 
-- [CS61A-Work](#cs61a-work)
+- [CS61A-Spring2021](#cs61a-spring2021)
   - [Table of Contents](#table-of-contents)
   - [Background](#background)
   - [Install](#install)
@@ -28,7 +28,7 @@ The first lesson is SICP.
 ## Install
 
 ```sh
-$ git clone https://github.com/wuxueqian14/cs61a-work.git
+$ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 ```
 
 ## Usage
@@ -86,7 +86,7 @@ $ git clone https://github.com/wuxueqian14/cs61a-work.git
 
 ## Contributing
 
-Feel free to dive in! [Open an issue](https://github.com/wuxueqian14/cs61a-work/issues/new) or submit PRs.
+Feel free to dive in! [Open an issue](https://github.com/wuxueqian14/CS61A-Spring2021/issues/new) or submit PRs.
 
 ### Contributors
 
