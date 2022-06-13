@@ -1,2 +1,99 @@
-# cs61a-work
-process of the studying cs61a(from berkeley)
+# CS61A-Work
+
+Record learning CS61A(Spring 2021).
+
+## Table of Contents
+
+- [CS61A-Work](#cs61a-work)
+  - [Table of Contents](#table-of-contents)
+  - [Background](#background)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Project going](#project-going)
+    - [Lab](#lab)
+    - [Homework](#homework)
+    - [Project](#project)
+  - [Related Efforts](#related-efforts)
+  - [Maintainers](#maintainers)
+  - [Contributing](#contributing)
+    - [Contributors](#contributors)
+  - [License](#license)
+
+## Background
+
+After my undergraduate degree, I wanted to improve my computer science skills. So I wanted to re-study computer science to the standards of top American universities and I chose [TeachYourselfCS](https://teachyourselfcs.com/). 
+
+The first lesson is SICP.
+
+## Install
+
+```sh
+$ git clone https://github.com/wuxueqian14/cs61a-work.git
+```
+
+## Usage
+
+- Open the `lab` folder and find the lab you want.
+- Open the `homework` folder and find the homework you want.
+- Open the `project` folder and find the homework you want.
+
+## Project going
+
+### Lab
+- [x] [lab00]
+- [x] [lab01]
+- [ ] [lab03]
+- [ ] [lab04]
+- [ ] [lab05]
+- [ ] [lab06]
+- [ ] [lab07]
+- [ ] [lab08]
+- [ ] [lab09]
+- [ ] [lab10]
+- [ ] [lab11]
+- [ ] [lab12]
+- [ ] [lab13]
+- [ ] [lab14]
+
+### Homework
+- [x] [hw01]
+- [x] [hw02]
+- [ ] [hw03]
+- [ ] [hw04]
+- [ ] [hw05]
+- [ ] [hw06]
+- [ ] [hw07]
+- [ ] [hw08]
+- [ ] [hw09]
+- [ ] [hw10]
+
+### Project
+
+- [ ] [Hog]
+- [ ] [Cats]
+- [ ] [Ants]
+- [ ] [Scheme]
+
+## Related Efforts
+
+- [CS61A-Fall-2020](https://github.com/HobbitQia/CS61A-Fall-2020)
+
+- [cs61a_fall2020](https://github.com/311zzb/cs61a_fall2020)
+
+## Maintainers
+
+[@wuxueqian14](https://github.com/wuxueqian14)
+
+## Contributing
+
+Feel free to dive in! [Open an issue](https://github.com/wuxueqian14/cs61a-work/issues/new) or submit PRs.
+
+### Contributors
+
+This project exists thanks to all the people who contribute. 
+
+[@wuxueqian14](https://github.com/wuxueqian14)
+
+## License
+
+[MIT](LICENSE) © Wu Xueqian
