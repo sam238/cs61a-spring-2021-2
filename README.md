@@ -1,6 +1,6 @@
 # CS61A-Spring2021
 
-Record learning CS61A(Spring 2021).
+Record learning [CS61A(Spring 2021)](https://inst.eecs.berkeley.edu/~cs61a/sp21/).
 
 ## Table of Contents
 
@@ -35,7 +35,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 
 - Open the `lab` folder and find the lab you want.
 - Open the `homework` folder and find the homework you want.
-- Open the `project` folder and find the homework you want.
+- Open the `project` folder and find the project you want.
 
 ## Project going
 
