@@ -69,10 +69,12 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 
 ### Project
 
-- [ ] [Hog]
+- [x] [Hog]
 - [ ] [Cats]
 - [ ] [Ants]
 - [ ] [Scheme]
+
+<img src=./image/hog.png width=600></p>
 
 ## Related Efforts
 

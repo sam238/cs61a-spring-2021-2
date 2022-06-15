@@ -1,5 +1,6 @@
 """CS 61A Presents The Game of Hog."""
 
+from unittest import mock
 from dice import six_sided, four_sided, make_test_dice
 from ucb import main, trace, interact
 
@@ -336,6 +337,16 @@ def make_averaged(original_function, trials_count=1000):
     """
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
+    def averaged_original_function(*args):
+        sum = 0.0
+        i = 0
+        while i < trials_count: # Add trials_count times
+            sum += original_function(*args)
+            i += 1
+        # Get the average
+        average = sum / trials_count
+        return average
+    return averaged_original_function
     # END PROBLEM 8
 
 
@@ -350,6 +361,17 @@ def max_scoring_num_rolls(dice=six_sided, trials_count=1000):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
+    i = 1
+    score = 0
+    while i <= 10: # Loop 1 to 10
+        average_function = make_averaged(roll_dice, trials_count)
+        # Get score
+        tmp = average_function(i, dice) 
+        if tmp > score: # If greater than score update
+            score = tmp
+            ans = i # Mark ans
+        i += 1
+    return ans
     # END PROBLEM 9
 
 
@@ -390,7 +412,10 @@ def piggypoints_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     rolls NUM_ROLLS otherwise.
     """
     # BEGIN PROBLEM 10
-    return 6  # Replace this statement
+    if piggy_points(opponent_score) >= cutoff:
+        return 0
+    else:
+        return num_rolls
     # END PROBLEM 10
 
 
@@ -400,7 +425,13 @@ def more_boar_strategy(score, opponent_score, cutoff=8, num_rolls=6):
     Otherwise, it rolls NUM_ROLLS.
     """
     # BEGIN PROBLEM 11
-    return 6  # Replace this statement
+    pigger_score = score + piggy_points(opponent_score)
+    if more_boar(pigger_score, opponent_score):
+        return 0
+    elif pigger_score - score >= cutoff:
+        return 0
+    else:
+        return num_rolls
     # END PROBLEM 11
 
 
@@ -410,7 +441,17 @@ def final_strategy(score, opponent_score):
     *** YOUR DESCRIPTION HERE ***
     """
     # BEGIN PROBLEM 12
-    return 6  # Replace this statement
+    if score < opponent_score:
+        if more_boar_strategy(score, opponent_score, opponent_score-score, 6) == 0:
+            # If More Boar strategy good
+            num_rolls = 0
+        else:
+            num_rolls = 6
+    else:
+        num_rolls = piggypoints_strategy(score, opponent_score, 6, 6)
+        if num_rolls == 6:
+            num_rolls = 1
+    return num_rolls  # Replace this statement
     # END PROBLEM 12
 
 ##########################
