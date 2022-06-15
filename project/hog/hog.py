@@ -83,19 +83,23 @@ def take_turn(num_rolls, opponent_score, dice=six_sided, goal=GOAL_SCORE):
     # END PROBLEM 3
 
 
-def get_digit_count(number):
-    count = 0
-    while number != 0:
-        number //= 10
-        count += 1
-    return count
+def get_first_second_digit(score):
+    """Return tuple include the first and the second digits of the score.
 
-def get_base_ten(m):
-    base = 1
-    while m > 0:
-        base *= 10
-        m -= 1
-    return base
+    score: The score of the player.
+
+    >>> get_first_second_digit(123)
+    (1, 2)
+    >>> get_first_second_digit(6)
+    (0, 6)
+    >>> get_first_second_digit(9833)
+    (9, 8)
+    """
+    while score != 0:
+        if score < 100: # When score less 100 return
+            return (score // 10, score % 10)
+        score //= 10
+    return (0, 0)
 
 def more_boar(player_score, opponent_score):
     """Return whether the player gets an extra turn.
@@ -116,31 +120,15 @@ def more_boar(player_score, opponent_score):
     """
     # BEGIN PROBLEM 4
     "*** YOUR CODE HERE ***"
-    # END PROBLEM 4
-    # Get the digit count
-    player_digit_count = get_digit_count(player_score)
-    opponent_digit_count = get_digit_count(opponent_score)
-
-    # Get player first and second digit
-    if player_digit_count == 1:
-        player_first = 0
-        player_second = player_score
-    else:
-        player_first = player_score // get_base_ten(player_digit_count-1)
-        player_second = player_score % get_base_ten(player_digit_count-1) // get_base_ten(player_digit_count-2)
-
-    # Get opponent first and second digit
-    if opponent_digit_count == 1:
-        opponent_first = 0
-        opponent_second = opponent_score
-    else:
-        opponent_first = opponent_score // get_base_ten(opponent_digit_count-1)
-        opponent_second = opponent_score % get_base_ten(opponent_digit_count-1) // get_base_ten(opponent_digit_count-2)
-
+    # Get the first and the second digits
+    player_first, player_second = get_first_second_digit(player_score)
+    opponent_first, opponent_second = get_first_second_digit(opponent_score)
+    # Check
     if player_first < opponent_first and player_second < opponent_second:
         return True
     else:
         return False
+    # END PROBLEM 4
 
 
 def next_player(who):
@@ -179,12 +167,35 @@ def play(strategy0, strategy1, score0=0, score1=0, dice=six_sided,
     who = 0  # Who is about to take a turn, 0 (first) or 1 (second)
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    while True:
+        if who == 0:
+            num = strategy0(score0, score1)
+            score = take_turn(num, score1, dice, goal)
+            score0 += score
+            # After turn print say
+            say = say(score0, score1)
+            if score0 >= goal:
+                return (score0, score1)
+        else:
+            num = strategy1(score1, score0)
+            score = take_turn(num, score0, dice, goal)
+            score1 += score
+            say = say(score0, score1)
+            if score1 >= goal:
+                return (score0, score1)
+        # Get the next player
+        # Three case: score0 < score1, score1 < score1 and none
+        if more_boar(score0, score1): 
+            who = 0
+        elif more_boar(score1, score0):
+            who = 1
+        else:
+            who = next_player(who)
     # END PROBLEM 5
     # (note that the indentation for the problem 6 prompt (***YOUR CODE HERE***) might be misleading)
     # BEGIN PROBLEM 6
     "*** YOUR CODE HERE ***"
     # END PROBLEM 6
-    return score0, score1
 
 
 #######################
@@ -267,8 +278,26 @@ def announce_highest(who, last_score=0, running_high=0):
     assert who == 0 or who == 1, 'The who argument should indicate a player.'
     # BEGIN PROBLEM 7
     "*** YOUR CODE HERE ***"
+    def say(score0, score1):
+        if who == 0:
+            last_score_tmp = last_score # Record last score
+            running_high_tmp = running_high # Record running high
+            incre = score0 - last_score_tmp 
+            last_score_tmp = score0 # Update last score
+            if incre > running_high_tmp:
+                running_high_tmp = incre
+                print('Player 0 has reached a new maximum point gain.', running_high_tmp, 'point(s)!')
+        else:
+            last_score_tmp = last_score
+            running_high_tmp = running_high
+            incre = score1 - last_score_tmp
+            last_score_tmp = score1
+            if incre > running_high_tmp:
+                running_high_tmp = incre
+                print('Player 1 has reached a new maximum point gain.', running_high_tmp, 'point(s)!')
+        return announce_highest(who, last_score_tmp, running_high_tmp)
+    return say   
     # END PROBLEM 7
-
 
 #######################
 # Phase 3: Strategies #
