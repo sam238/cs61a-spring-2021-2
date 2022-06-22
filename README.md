@@ -42,6 +42,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 ### Lab
 - [x] [lab00]
 - [x] [lab01]
+- [x] [lab02]
 - [ ] [lab03]
 - [ ] [lab04]
 - [ ] [lab05]
@@ -58,7 +59,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 ### Homework
 - [x] [hw01]
 - [x] [hw02]
-- [ ] [hw03]
+- [x] [hw03]
 - [ ] [hw04]
 - [ ] [hw05]
 - [ ] [hw06]
