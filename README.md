@@ -43,7 +43,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [lab00]
 - [x] [lab01]
 - [x] [lab02]
-- [ ] [lab03]
+- [x] [lab03]
 - [ ] [lab04]
 - [ ] [lab05]
 - [ ] [lab06]
