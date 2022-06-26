@@ -44,7 +44,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [lab01]
 - [x] [lab02]
 - [x] [lab03]
-- [ ] [lab04]
+- [x] [lab04] (mid review test)
 - [ ] [lab05]
 - [ ] [lab06]
 - [ ] [lab07]
