@@ -128,6 +128,8 @@ def wpm(typed, elapsed):
     assert elapsed > 0, 'Elapsed time must be positive'
     # BEGIN PROBLEM 4
     "*** YOUR CODE HERE ***"
+    typed_len = len(typed)
+    return typed_len / 5 / elapsed * 60.0
     # END PROBLEM 4
 
 
@@ -155,6 +157,16 @@ def autocorrect(typed_word, valid_words, diff_function, limit):
     """
     # BEGIN PROBLEM 5
     "*** YOUR CODE HERE ***"
+    if typed_word in valid_words:
+        return typed_word
+    diff = limit
+    ans = typed_word
+    for word in valid_words[::-1]: # Reversed traverse to find the first valid_word.
+        tmp = diff_function(typed_word, word, limit)
+        if tmp <= diff: # Update diff.
+            diff = tmp
+            ans = word
+    return ans
     # END PROBLEM 5
 
 
@@ -179,9 +191,18 @@ def sphinx_switches(start, goal, limit):
     5
     >>> sphinx_switches("rose", "hello", big_limit)   # Substitute: r->h, o->e, s->l, e->l, length difference of 1.
     5
+    abc
+    abddf 2
     """
     # BEGIN PROBLEM 6
-    assert False, 'Remove this line'
+    if limit < 0:
+        return 0
+    if start == '' or goal == '':
+        return len(start) + len(goal)
+    if start[0] == goal[0]:
+        return 0 + sphinx_switches(start[1:], goal[1:], limit)
+    else:
+        return 1 + sphinx_switches(start[1:], goal[1:], limit - 1)
     # END PROBLEM 6
 
 
@@ -202,24 +223,31 @@ def pawssible_patches(start, goal, limit):
     >>> pawssible_patches("ckiteus", "kittens", big_limit) # ckiteus -> kiteus -> kitteus -> kittens
     3
     """
-    assert False, 'Remove this line'
+    if limit < 0:
+        return 0
 
-    if ______________:  # Fill in the condition
+    # Need add character
+    if start == '' or goal == '':  
         # BEGIN
         "*** YOUR CODE HERE ***"
+        return len(start) + len(goal)
         # END
 
-    elif ___________:  # Feel free to remove or add additional cases
+    elif start[0] == goal[0]:  
         # BEGIN
         "*** YOUR CODE HERE ***"
+        # Comparison add, remove or go next.
+        add_or_remove_diff = min(pawssible_patches(start[1:], goal, limit - 1), pawssible_patches(start, goal[1:], limit - 1)) + 1
+        return min(add_or_remove_diff, pawssible_patches(start[1:], goal[1:], limit))
         # END
-
     else:
-        add = ...  # Fill in these lines
-        remove = ...
-        substitute = ...
+        # Comparison add, remove and substitute
+        add = pawssible_patches(start, goal[1:], limit - 1)
+        remove = pawssible_patches(start[1:], goal, limit - 1)
+        substitute = pawssible_patches(start[1:], goal[1:], limit - 1)
         # BEGIN
         "*** YOUR CODE HERE ***"
+        return min(add, remove, substitute) + 1
         # END
 
 
