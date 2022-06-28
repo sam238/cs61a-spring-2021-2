@@ -290,6 +290,21 @@ def report_progress(typed, prompt, user_id, send):
     """
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
+    count = 0
+    for idx in range(len(typed)):
+        # From 0 idx comparison
+        if typed[idx] == prompt[idx]:
+            count += 1
+        else:
+            # When incorrect break the loop
+            break
+    progress = count / len(prompt) * 1.0
+    # Create dictionary to send message
+    d = {}
+    d['id'] = user_id
+    d['progress'] = progress
+    send(d)
+    return progress
     # END PROBLEM 8
 
 
@@ -323,6 +338,16 @@ def time_per_word(times_per_player, words):
     """
     # BEGIN PROBLEM 9
     "*** YOUR CODE HERE ***"
+    player_len = len(times_per_player)
+    words_len = len(times_per_player[0])
+    times = []
+    for i in range(player_len):
+        tmp = []
+        for j in range(words_len):
+            if j > 0:
+                tmp.append((times_per_player[i][j] - times_per_player[i][j-1]))
+        times.append(tmp)
+    return game(words, times)
     # END PROBLEM 9
 
 
@@ -341,6 +366,22 @@ def fastest_words(game):
     word_indices = range(len(all_words(game)))    # contains an *index* for each word
     # BEGIN PROBLEM 10
     "*** YOUR CODE HERE ***"
+    ans = []
+    # Initialize the answer list
+    for i in player_indices:
+        ans += [[]]
+    # Check every word
+    for i in word_indices:
+        time_min = time(game, 0, i)
+        mark = 0
+        for j in player_indices:
+            # Get j-th player i-th word's time
+            t = time(game, j, i)
+            if t < time_min:
+                time_min = t
+                mark = j # Update the min time player per the word
+        ans[mark] += [word_at(game, i)]
+    return ans
     # END PROBLEM 10
 
 
@@ -381,7 +422,7 @@ def game_string(game):
     return "game(%s, %s)" % (game[0], game[1])
 
 
-enable_multiplayer = False  # Change to True when you're ready to race.
+enable_multiplayer = True  # Change to True when you're ready to race.
 
 ##########################
 # Command Line Interface #
