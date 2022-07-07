@@ -1,6 +1,8 @@
 """CS 61A presents Ants Vs. SomeBees."""
 
+from operator import truediv
 import random
+from unicodedata import name
 from ucb import main, interact, trace
 from collections import OrderedDict
 
@@ -283,10 +285,35 @@ class FireAnt(Ant):
 # BEGIN Problem 6
 # The WallAnt class
 # END Problem 6
+class WallAnt(Ant):
+    name = 'Wall'
+    food_cost = 4
+    implemented = True
 
+    def __init__(self, health=4):
+        """Create an Ant with a HEALTH quantity."""
+        super().__init__(health)
 # BEGIN Problem 7
 # The HungryAnt Class
 # END Problem 7
+class HungryAnt(Ant):
+    name = 'Hungry'
+    food_cost = 4
+    chew_duration = 3
+    implemented = True
+    
+    def __init__(self, chewing=0, health=1):
+        super().__init__(health)
+        self.chewing = chewing
+    
+    def action(self, gamestate):
+        if self.chewing == 0:
+            if len(self.place.bees) > 0: # If has bees and eat one
+                bee = bee_selector(self.place.bees)
+                bee.reduce_health(bee.health)
+                self.chewing = self.chew_duration
+        else: # Chewing...
+            self.chewing -= 1
 
 
 class ContainerAnt(Ant):
