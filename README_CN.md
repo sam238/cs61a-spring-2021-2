@@ -1,45 +1,43 @@
 # CS61A-Spring2021
 
-[中文版本](README_CN.md)
+记录学习[CS61A(Spring 2021)](https://inst.eecs.berkeley.edu/~cs61a/sp21/).
 
-Record learning [CS61A(Spring 2021)](https://inst.eecs.berkeley.edu/~cs61a/sp21/). 
-
-## Table of Contents
+## 目录
 
 - [CS61A-Spring2021](#cs61a-spring2021)
-  - [Table of Contents](#table-of-contents)
-  - [Background](#background)
-  - [Install](#install)
-  - [Usage](#usage)
-  - [Project going](#project-going)
+  - [目录](#目录)
+  - [背景](#背景)
+  - [下载](#下载)
+  - [使用方法](#使用方法)
+  - [项目进展](#项目进展)
     - [Lab](#lab)
     - [Homework](#homework)
     - [Project](#project)
-  - [Related Efforts](#related-efforts)
-  - [Maintainers](#maintainers)
-  - [Contributing](#contributing)
-    - [Contributors](#contributors)
-  - [License](#license)
+  - [相关仓库](#相关仓库)
+  - [维护者](#维护者)
+  - [贡献](#贡献)
+    - [贡献者](#贡献者)
+  - [证书](#证书)
 
-## Background
+## 背景
 
-After my undergraduate degree, I wanted to improve my computer science skills. So I wanted to re-study computer science to the standards of top American universities and I chose [TeachYourselfCS](https://teachyourselfcs.com/). 
+本科毕业后，我想提高我的计算机科学水平，想以美国顶尖大学的标准重新学习计算机科学，选择跟随[TeachYourselfCS](https://teachyourselfcs.com/)的指导坚持学习。
 
-The first lesson is SICP.
+第一门课程是《计算机程序构造与解释》。
 
-## Install
+## 下载
 
 ```sh
 $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 ```
 
-## Usage
+## 使用方法
 
 - Open the `lab` folder and find the lab you want.
 - Open the `homework` folder and find the homework you want.
 - Open the `project` folder and find the project you want.
 
-## Project going
+## 项目进展
 
 ### Lab
 - [x] [lab00]
@@ -87,26 +85,26 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 <img src=./image/ants.png width=600>
 </p>
 
-## Related Efforts
+## 相关仓库
 
 - [CS61A-Fall-2020](https://github.com/HobbitQia/CS61A-Fall-2020)
 
 - [cs61a_fall2020](https://github.com/311zzb/cs61a_fall2020)
 
-## Maintainers
+## 维护者
 
 [@wuxueqian14](https://github.com/wuxueqian14)
 
-## Contributing
+## 贡献
 
-Feel free to dive in! [Open an issue](https://github.com/wuxueqian14/CS61A-Spring2021/issues/new) or submit PRs.
+欢迎加入！[提出问题](https://github.com/wuxueqian14/CS61A-Spring2021/issues/new)或者提交PRs.
 
-### Contributors
+### 贡献者
 
-This project exists thanks to all the people who contribute. 
+该项目感谢以下所有的贡献者。
 
 [@wuxueqian14](https://github.com/wuxueqian14)
 
-## License
+## 证书
 
 [MIT](LICENSE) © Wu Xueqian
