@@ -89,6 +89,12 @@ def store_digits(n):
     >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
     """
     "*** YOUR CODE HERE ***"
+    rest = Link.empty
+    while n != 0:
+        tmp = Link(n % 10, rest)
+        rest = tmp
+        n //= 10
+    return tmp
 
 
 def path_yielder(t, value):
@@ -127,12 +133,11 @@ def path_yielder(t, value):
     """
 
     "*** YOUR CODE HERE ***"
-
-    for _______________ in _________________:
-        for _______________ in _________________:
-
-            "*** YOUR CODE HERE ***"
-
+    if t.label == value:
+        yield [value]
+    for branch in t.branches:
+        for path in path_yielder(branch, value):
+            yield [t.label] + path
 
 class Mint:
     """A mint creates coins by stamping on years.
