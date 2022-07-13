@@ -63,7 +63,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [hw02]
 - [x] [hw03]
 - [x] [hw04]
-- [ ] [hw05]
+- [x] [hw05]
 - [ ] [hw06]
 - [ ] [hw07]
 - [ ] [hw08]

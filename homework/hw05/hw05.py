@@ -1,3 +1,6 @@
+from pickle import FALSE
+
+
 class VendingMachine:
     """A vending machine that vends some product for some price.
 
@@ -89,10 +92,9 @@ def store_digits(n):
     >>> print("Do not use str or reversed!") if any([r in cleaned for r in ["str", "reversed"]]) else None
     """
     "*** YOUR CODE HERE ***"
-    rest = Link.empty
+    tmp = Link.empty
     while n != 0:
-        tmp = Link(n % 10, rest)
-        rest = tmp
+        tmp = Link(n % 10, tmp)
         n //= 10
     return tmp
 
@@ -136,6 +138,7 @@ def path_yielder(t, value):
     if t.label == value:
         yield [value]
     for branch in t.branches:
+        # If has path
         for path in path_yielder(branch, value):
             yield [t.label] + path
 
@@ -175,9 +178,11 @@ class Mint:
 
     def create(self, kind):
         "*** YOUR CODE HERE ***"
+        return kind(self.year)
 
     def update(self):
         "*** YOUR CODE HERE ***"
+        self.year = self.current_year
 
 
 class Coin:
@@ -186,6 +191,10 @@ class Coin:
 
     def worth(self):
         "*** YOUR CODE HERE ***"
+        if self.year == Mint.current_year:
+            return self.cents
+        else:
+            return self.cents + (Mint.current_year - self.year - 50)
 
 
 class Nickel(Coin):
@@ -195,6 +204,19 @@ class Nickel(Coin):
 class Dime(Coin):
     cents = 10
 
+def bst_min(t):
+    """Return the minimum of Tree t"""
+    minimum = t.label
+    for branch in t.branches:
+        minimum = min(bst_min(branch), minimum)
+    return minimum
+
+def bst_max(t):
+    """Return the maximum of Tree t"""
+    maximum = t.label
+    for branch in t.branches:
+        maximum = max(bst_max(branch), maximum)
+    return maximum
 
 def is_bst(t):
     """Returns True if the Tree t has the structure of a valid BST.
@@ -222,7 +244,19 @@ def is_bst(t):
     False
     """
     "*** YOUR CODE HERE ***"
-
+    child_count = len(t.branches)
+    if child_count == 0:
+        # Tree is a leaf
+        return True
+    elif child_count == 2:
+        # Left Tree check and right Tree check
+        return bst_max(t.branches[0]) <= t.label and bst_min(t.branches[1]) >= t.label and is_bst(t.branches[0]) and is_bst(t.branches[1])
+    elif child_count == 1:
+        # Left Tree check or right Tree check
+        return (bst_max(t.branches[0]) <= t.label or bst_min(t.branches[0]) >= t.label) and is_bst(t.branches[0])
+    else:
+        # More than 2 children
+        return False
 
 def preorder(t):
     """Return a list of the entries in this tree in the order that they

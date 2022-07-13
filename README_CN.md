@@ -33,9 +33,11 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 
 ## 使用方法
 
-- Open the `lab` folder and find the lab you want.
-- Open the `homework` folder and find the homework you want.
-- Open the `project` folder and find the project you want.
+- 打开你想要查找的`lab`文件夹。 
+- 打开你想要查找的`homework`文件夹.
+- 打开你想要查找的 `project`文件夹.
+
+查看`xx.py`代码文件。
 
 ## 项目进展
 
@@ -61,7 +63,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [hw02]
 - [x] [hw03]
 - [x] [hw04]
-- [ ] [hw05]
+- [x] [hw05]
 - [ ] [hw06]
 - [ ] [hw07]
 - [ ] [hw08]
