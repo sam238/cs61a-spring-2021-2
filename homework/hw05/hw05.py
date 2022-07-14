@@ -269,7 +269,12 @@ def preorder(t):
     [2, 4, 6]
     """
     "*** YOUR CODE HERE ***"
-
+    # Visit the root node
+    res = [t.label]
+    for branch in t.branches:
+        # Visit children node, preorder children node
+        res += preorder(branch)
+    return res
 
 def generate_preorder(t):
     """Yield the entries in this tree in the order that they
@@ -283,6 +288,10 @@ def generate_preorder(t):
     [2, 3, 4, 5, 6, 7]
     """
     "*** YOUR CODE HERE ***"
+    yield t.label
+    for branch in t.branches:
+        # yield from children tree
+        yield from generate_preorder(branch)
 
 
 class Link:
