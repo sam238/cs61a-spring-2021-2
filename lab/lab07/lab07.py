@@ -8,6 +8,12 @@ def convert_link(link):
     []
     """
     "*** YOUR CODE HERE ***"
+    res = []
+    t = link
+    while t != Link.empty:
+        res.append(t.first)
+        t = t.rest
+    return res
 
 
 def cumulative_mul(t):
@@ -20,6 +26,9 @@ def cumulative_mul(t):
     Tree(105, [Tree(15, [Tree(5)]), Tree(7)])
     """
     "*** YOUR CODE HERE ***"
+    for branch in t.branches:
+        cumulative_mul(branch)
+        t.label *= branch.label
 
 
 def has_cycle(link):
