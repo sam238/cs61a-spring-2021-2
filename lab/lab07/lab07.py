@@ -46,6 +46,13 @@ def has_cycle(link):
     False
     """
     "*** YOUR CODE HERE ***"
+    t = link
+    while t is not Link.empty:
+        t = t.rest
+        # Head node occur again
+        if t is link:
+            return True
+    return False
 
 
 def has_cycle_constant(link):
@@ -60,6 +67,18 @@ def has_cycle_constant(link):
     False
     """
     "*** YOUR CODE HERE ***"
+    slow, fast = link, link
+    while fast is not Link.empty:
+        if fast.rest is Link.empty:
+            return False
+        elif fast.rest is slow:
+            return True
+        else:
+            # Slow point forward 1 and fast point forward 2
+            slow, fast = slow.rest, fast.rest.rest
+    return False
+
+
 
 
 def every_other(s):
@@ -80,7 +99,12 @@ def every_other(s):
     Link(4)
     """
     "*** YOUR CODE HERE ***"
-
+    t = s
+    while t is not Link.empty:
+        if t.rest is not Link.empty:
+            # Skip odd-indiced node
+            t.rest = t.rest.rest
+        t = t.rest
 
 def reverse_other(t):
     """Mutates the tree such that nodes on every other (odd-depth) level
@@ -96,7 +120,16 @@ def reverse_other(t):
     Tree(1, [Tree(8, [Tree(3, [Tree(5), Tree(4)]), Tree(6, [Tree(7)])]), Tree(2)])
     """
     "*** YOUR CODE HERE ***"
-
+    children_count = len(t.branches)
+    for i in range(children_count//2):
+        # Change the label
+        tmp = t.branches[i].label
+        t.branches[i].label = t.branches[children_count-i-1].label
+        t.branches[children_count-i-1].label = tmp
+    # Recursion odd-depth
+    for i in range(children_count):
+        for b in t.branches[i].branches:
+            reverse_other(b)
 
 class Link:
     """A linked list.
