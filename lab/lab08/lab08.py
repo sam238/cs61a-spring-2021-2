@@ -49,7 +49,7 @@ def non_decrease_subseqs(s):
         if not s:
             return [[]]
         elif s[0] < prev:
-            return [[]]
+            return subseq_helper(s[1:], prev)
         else:
             # Add current item
             a = subseq_helper(s[1:], s[0])
@@ -163,26 +163,25 @@ class Keyboard:
     """
 
     def __init__(self, *args):
-        ________________
-        for _________ in ________________:
-            ________________
+        self.buttons = {}
+        for arg in args:
+            self.buttons[arg.pos] = arg
 
     def press(self, info):
         """Takes in a position of the button pressed, and
         returns that button's output"""
-        if ____________________:
-            ________________
-            ________________
-            ________________
-        ________________
+        if self.buttons.get(info, None):
+            self.buttons[info].times_pressed += 1
+            return self.buttons[info].key
+        return ''
 
     def typing(self, typing_input):
         """Takes in a list of positions of buttons pressed, and
         returns the total output"""
-        ________________
-        for ________ in ____________________:
-            ________________
-        ________________
+        res = ''
+        for type in typing_input:
+            res += self.press(type)
+        return res
 
 
 class Account:
@@ -213,24 +212,37 @@ class Account:
         self.balance = 0
         self.holder = account_holder
         "*** YOUR CODE HERE ***"
+        self.transactions = []
+        self.deposit_count = 0
+        self.withdraw_count = 0
 
     def deposit(self, amount):
         """Increase the account balance by amount, add the deposit
         to the transaction history, and return the new balance.
         """
         "*** YOUR CODE HERE ***"
+        self.balance += amount
+        self.transactions.append(('deposit', amount))
+        self.deposit_count += 1
+        return self.balance
 
     def withdraw(self, amount):
         """Decrease the account balance by amount, add the withdraw
         to the transaction history, and return the new balance.
         """
         "*** YOUR CODE HERE ***"
+        self.balance -= amount
+        self.transactions.append(('withdraw', amount))
+        self.withdraw_count += 1
+        return self.balance
 
     def __str__(self):
         "*** YOUR CODE HERE ***"
+        return f"{self.holder}'s Balance: ${self.balance}"
 
     def __repr__(self):
         "*** YOUR CODE HERE ***"
+        return f"Accountholder: {self.holder}, Deposits: {self.deposit_count}, Withdraws: {self.withdraw_count}"
 
 
 def trade(first, second):
@@ -262,9 +274,9 @@ def trade(first, second):
     """
     m, n = 1, 1
 
-    equal_prefix = lambda: ______________________
-    while _______________________________:
-        if __________________:
+    equal_prefix = lambda: sum(first[0:m]) == sum(second[0:n])
+    while m <= len(first) and n <= len(second) and not equal_prefix():
+        if sum(first[0:m]) < sum(second[0:n]):
             m += 1
         else:
             n += 1
@@ -302,11 +314,11 @@ def shuffle(cards):
     ['A♡', 'A♢', 'A♤', 'A♧', '2♡', '2♢', '2♤', '2♧', '3♡', '3♢', '3♤', '3♧']
     """
     assert len(cards) % 2 == 0, 'len(cards) must be even'
-    half = _______________
+    half = len(cards) // 2
     shuffled = []
-    for i in _____________:
-        _________________
-        _________________
+    for i in range(half):
+        shuffled.append(cards[i])
+        shuffled.append(cards[half + i])
     return shuffled
 
 
@@ -331,6 +343,15 @@ def insert(link, value, index):
     IndexError: Out of bounds!
     """
     "*** YOUR CODE HERE ***"
+    if index == 0:
+        # Add node
+        link.rest = Link(link.first, link.rest)
+        link.first = value
+    elif not link.rest:
+        raise IndexError('Out of bounds!')
+    else:
+        insert(link.rest, value, index-1)
+
 
 
 def deep_len(lnk):
