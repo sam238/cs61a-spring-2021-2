@@ -1,4 +1,5 @@
 import numbers
+from wsgiref.simple_server import demo_app
 
 
 def insert_into_all(item, nested_list):
@@ -368,12 +369,13 @@ def deep_len(lnk):
     >>> deep_len(levels)
     5
     """
-    if ______________:
+    if lnk is Link.empty:
         return 0
-    elif ______________:
+    elif isinstance(lnk, int):
+        # Link is number count 1
         return 1
     else:
-        return _________________________
+        return deep_len(lnk.first) + deep_len(lnk.rest)
 
 
 def make_to_string(front, mid, back, empty_repr):
@@ -392,10 +394,10 @@ def make_to_string(front, mid, back, empty_repr):
     '()'
     """
     def printer(lnk):
-        if ______________:
-            return _________________________
+        if lnk is Link.empty:
+            return empty_repr
         else:
-            return _________________________
+            return front + str(lnk.first) + mid + printer(lnk.rest) + back
     return printer
 
 
@@ -416,11 +418,12 @@ def prune_small(t, n):
     >>> t3
     Tree(6, [Tree(1), Tree(3, [Tree(1), Tree(2)])])
     """
-    while ___________________________:
-        largest = max(_______________, key=____________________)
-        _________________________
-    for __ in _____________:
-        ___________________
+    while len(t.branches) > n:
+        # Find largest number and remove it
+        largest = max(t.branches, key=lambda x: x.label)
+        t.branches.remove(largest)
+    for branch in t.branches:
+        prune_small(branch, n)
 
 
 def long_paths(t, n):
@@ -474,6 +477,14 @@ def long_paths(t, n):
     [[0, 11, 12, 13, 14]]
     """
     "*** YOUR CODE HERE ***"
+    res = []
+    # Length greater than n and must arrive leaf
+    if n <= 0 and t.is_leaf():
+        res.append([t.label])
+    for branch in t.branches:
+        for path in long_paths(branch, n - 1):
+            res.append([t.label] + path)
+    return res
 
 
 class Link:

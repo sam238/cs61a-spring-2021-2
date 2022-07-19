@@ -42,58 +42,41 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 ## Project going
 
 ### Lab
-- [x] [lab00]
-- [x] [lab01]
-- [x] [lab02]
-- [x] [lab03]
-- [x] [lab04] (mid review test)
-- [x] [lab05]
-- [x] [lab06]
-- [x] [lab07]
-- [ ] [lab08]
-- [ ] [lab09]
-- [ ] [lab10]
-- [ ] [lab11]
-- [ ] [lab12]
-- [ ] [lab13]
-- [ ] [lab14]
+- [x] [Lab 00: Getting Started](lab/lab00/lab00.py)
+- [x] [Lab 01: Variables & Functions, Control](lab/lab01/lab01.py)
+- [x] [Lab 02: Higher-Order Functions, Lambda Expressions](lab/lab02/lab02.py)
+- [x] [Lab 03: Recursion, Tree Recursion](lab/lab03/lab03.py)
+- [x] [Lab 05: Python Lists, Data Abstraction, Trees](lab/lab05/lab05.py)
+- [x] [Lab 06: Nonlocal, Mutability, Iterators and Generators](lab/lab06/lab06.py)
+- [x] [Lab 07: Object-Oriented Programming, Linked Lists, Mutable Trees](lab/lab07/lab07.py)
+- [x] [Lab 08: Midterm Review](lab/lab08/lab08.py)
 
 ### Homework
-- [x] [hw01]
-- [x] [hw02]
-- [x] [hw03]
-- [x] [hw04]
-- [x] [hw05]
-- [ ] [hw06]
-- [ ] [hw07]
-- [ ] [hw08]
-- [ ] [hw09]
-- [ ] [hw10]
+- [x] [HW 01: Variables & Functions, Control](homework/hw01/hw01.py)
+- [x] [HW 02: Higher-Order Functions](homework/hw02/hw02.py)
+- [x] [HW 03: Recursion](homework/hw03/hw03.py)
+- [x] [HW 04: Trees, Data Abstraction](homework/hw04/hw04.py)
+- [x] [HW 05: Object-Oriented Programming, Linked Lists, Iterators and Generators](homework/hw05/hw05.py)
 
 ### Project
 
-- [x] [Hog]
+- [x] [Hog](project/hog/hog.py)
 
  <p align="center">
 <img src=./image/hog.png width=600>
 </p>
 
-- [x] [Cats]
+- [x] [Cats](project/cats/cats.py)
 
 <p align="center">
 <img src=./image/cats.png width=600>
 </p>
 
-- [x] [Ants]
+- [x] [Ants](project/ants/ants.py)
 
 <p align="center">
 <img src=./image/ants.png width=600>
 </p>
-
-- [ ] [Scheme]
-
-
-
 
 
 ## Related Efforts
