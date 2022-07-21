@@ -58,6 +58,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [HW 03: Recursion](homework/hw03/hw03.py)
 - [x] [HW 04: Trees, Data Abstraction](homework/hw04/hw04.py)
 - [x] [HW 05: Object-Oriented Programming, Linked Lists, Iterators and Generators](homework/hw05/hw05.py)
+- [x] [HW 06: Scheme](homework/hw06/hw06.scm) 
 
 ### Project
 
