@@ -51,6 +51,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [Lab 07: Object-Oriented Programming, Linked Lists, Mutable Trees](lab/lab07/lab07.py)
 - [x] [Lab 08: Midterm Review](lab/lab08/lab08.py)
 - [x] [Lab 10: Scheme](lab/lab10/lab10.scm)
+- [x] [Lab 11: Interpreters](lab/lab11/expr.py)
 
 ### Homework
 - [x] [HW 01: Variables & Functions, Control](homework/hw01/hw01.py)
