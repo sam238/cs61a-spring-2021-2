@@ -36,6 +36,13 @@ def scheme_eval(expr, env, _=None):  # Optional third argument is ignored
     else:
         # BEGIN PROBLEM 4
         "*** YOUR CODE HERE ***"
+        # 1. Evaluate the operator
+        operator = scheme_eval(first, env)
+        validate_procedure(operator)
+        # 2. Evaluate the operands
+        operands = rest.map(lambda expr: scheme_eval(expr, env))
+        # 3. Apply the procedure on the operands
+        return scheme_apply(operator, operands, env)
         # END PROBLEM 4
 
 
@@ -171,6 +178,12 @@ class BuiltinProcedure(Procedure):
         arguments_list = []
         # BEGIN PROBLEM 3
         "*** YOUR CODE HERE ***"
+        # Pair to list
+        while args is not nil:
+            arguments_list += [args.first]
+            args = args.rest
+        if self.use_env:
+            arguments_list += [env]
         # END PROBLEM 3
         try:
             return self.fn(*arguments_list)
@@ -257,6 +270,8 @@ def do_define_form(expressions, env):
         validate_form(expressions, 2, 2)  # Checks that expressions is a list of length exactly 2
         # BEGIN PROBLEM 5
         "*** YOUR CODE HERE ***"
+        env.define(target, scheme_eval(expressions.rest.first, env))
+        return target
         # END PROBLEM 5
     elif isinstance(target, Pair) and scheme_symbolp(target.first):
         # BEGIN PROBLEM 9
@@ -277,6 +292,7 @@ def do_quote_form(expressions, env):
     validate_form(expressions, 1, 1)
     # BEGIN PROBLEM 6
     "*** YOUR CODE HERE ***"
+    return expressions.first
     # END PROBLEM 6
 
 
