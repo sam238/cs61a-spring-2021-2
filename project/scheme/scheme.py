@@ -78,7 +78,13 @@ def eval_all(expressions, env):
     2
     """
     # BEGIN PROBLEM 7
-    return scheme_eval(expressions.first, env)  # replace this with lines of your own code
+    if expressions is nil:
+        return None
+    while expressions is not nil:
+        # Record the value of the expression
+        res = scheme_eval(expressions.first, env)
+        expressions = expressions.rest
+    return res
     # END PROBLEM 7
 
 ################
@@ -137,6 +143,13 @@ class Frame:
             raise SchemeError('Incorrect number of arguments to function call')
         # BEGIN PROBLEM 10
         "*** YOUR CODE HERE ***"
+        child_frame = Frame(self)
+        while formals is not nil:
+            # Bind name to value
+            child_frame.define(formals.first, vals.first)
+            formals = formals.rest
+            vals = vals.rest
+        return child_frame
         # END PROBLEM 10
 
 ##############
@@ -210,6 +223,8 @@ class LambdaProcedure(Procedure):
         of values, for a lexically-scoped call evaluated in Frame ENV, the environment."""
         # BEGIN PROBLEM 11
         "*** YOUR CODE HERE ***"
+        frame = self.env.make_child_frame(self.formals, args)
+        return frame
         # END PROBLEM 11
 
     def __str__(self):
@@ -276,6 +291,14 @@ def do_define_form(expressions, env):
     elif isinstance(target, Pair) and scheme_symbolp(target.first):
         # BEGIN PROBLEM 9
         "*** YOUR CODE HERE ***"
+        # Create lambda function
+        body = expressions.rest
+        formals = target.rest
+        f = do_lambda_form(Pair(formals, body), env)
+        # Binding name to value
+        name = target.first
+        env.define(name, f)
+        return name
         # END PROBLEM 9
     else:
         bad_target = target.first if isinstance(target, Pair) else target
@@ -321,6 +344,8 @@ def do_lambda_form(expressions, env):
     validate_formals(formals)
     # BEGIN PROBLEM 8
     "*** YOUR CODE HERE ***"
+    body = expressions.rest
+    return LambdaProcedure(formals, body, env)
     # END PROBLEM 8
 
 
