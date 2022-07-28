@@ -85,7 +85,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [Scheme](project/scheme/scheme.py)
 
 <p align="center">
-<img src=./image/scheme.png> width=600>
+<img src=./image/scheme.png width=600>
 </p>
 
 ## Related Efforts
