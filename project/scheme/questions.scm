@@ -6,15 +6,21 @@
 ; Some utility functions that you may find useful to implement
 
 (define (zip pairs)
-  'replace-this-line)
+  (list (map car pairs) (map cadr pairs))
+)
 
 
 ;; Problem 15
 ;; Returns a list of two-element lists
 (define (enumerate s)
   ; BEGIN PROBLEM 15
-  'replace-this-line
+  (define (enumerate1 s i)
+    (if (null? s) nil
+      (cons (list i (car s)) (enumerate1 (cdr s) (+ i 1)))
+    )
   )
+  (enumerate1 s 0)
+)
   ; END PROBLEM 15
 
 ;; Problem 16
@@ -23,8 +29,16 @@
 ;; the merged lists.
 (define (merge comp list1 list2)
   ; BEGIN PROBLEM 16
-  'replace-this-line
+  (define (merg1 list1 list2)
+    (cond 
+      ((null? list1) list2)
+      ((null? list2) list1)
+      ((comp (car list1) (car list2)) (cons (car list1) (merg1 (cdr list1) list2)))
+      (else (cons (car list2) (merg1 list1 (cdr list2))))
+    )
   )
+  (merg1 list1 list2)
+)
   ; END PROBLEM 16
 
 
@@ -39,16 +53,15 @@
 (define quoted? (check-special 'quote))
 (define let?    (check-special 'let))
 
-;; Converts all let special forms in EXPR into equivalent forms using lambda
 (define (let-to-lambda expr)
   (cond ((atom? expr)
          ; BEGIN PROBLEM 17
-         'replace-this-line
+         expr
          ; END PROBLEM 17
          )
         ((quoted? expr)
          ; BEGIN PROBLEM 17
-         'replace-this-line
+         expr
          ; END PROBLEM 17
          )
         ((or (lambda? expr)
@@ -57,19 +70,20 @@
                (params (cadr expr))
                (body   (cddr expr)))
            ; BEGIN PROBLEM 17
-           'replace-this-line
+           (cons form (cons params (map let-to-lambda body)))
            ; END PROBLEM 17
            ))
         ((let? expr)
          (let ((values (cadr expr))
                (body   (cddr expr)))
            ; BEGIN PROBLEM 17
-           'replace-this-line
+           (cons (cons 'lambda 
+                     (cons (car (zip (let-to-lambda values))) (let-to-lambda body))) 
+                (cadr (zip (let-to-lambda values))))
            ; END PROBLEM 17
            ))
         (else
          ; BEGIN PROBLEM 17
-         'replace-this-line
+         (map let-to-lambda expr)
          ; END PROBLEM 17
          )))
-
