@@ -40,6 +40,7 @@ Click the following link to find lab or homework or project.
 ## Project going
 
 ### Lab
+
 - [x] [Lab 00: Getting Started](lab/lab00/lab00.py)
 - [x] [Lab 01: Variables & Functions, Control](lab/lab01/lab01.py)
 - [x] [Lab 02: Higher-Order Functions, Lambda Expressions](lab/lab02/lab02.py)
@@ -52,6 +53,7 @@ Click the following link to find lab or homework or project.
 - [x] [Lab 11: Interpreters](lab/lab11/expr.py)
 
 ### Homework
+
 - [x] [HW 01: Variables & Functions, Control](homework/hw01/hw01.py)
 - [x] [HW 02: Higher-Order Functions](homework/hw02/hw02.py)
 - [x] [HW 03: Recursion](homework/hw03/hw03.py)
