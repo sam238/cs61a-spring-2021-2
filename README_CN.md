@@ -33,11 +33,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 
 ## 使用方法
 
-- 打开你想要查找的`lab`文件夹。 
-- 打开你想要查找的`homework`文件夹.
-- 打开你想要查找的 `project`文件夹.
-
-查看`xx.py`代码文件。
+在下面的项目进展中查找你想要的lab/homework/project。
 
 ## 项目进展
 
@@ -61,6 +57,8 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [HW 05: Object-Oriented Programming, Linked Lists, Iterators and Generators](homework/hw05/hw05.py)
 - [x] [HW 06: Scheme](homework/hw06/hw06.scm) 
 - [x] [HW 07: Scheme Lists](homework/hw07/hw07.scm)
+- [x] [HW 08: Tail Recursion, Interpreters, Scheme](homework/hw08/hw08.scm)
+
 
 ### Project
 

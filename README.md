@@ -35,9 +35,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 
 ## Usage
 
-- Open the `lab` folder and find the lab you want.
-- Open the `homework` folder and find the homework you want.
-- Open the `project` folder and find the project you want.
+Click the following link to find lab or homework or project.
 
 ## Project going
 
@@ -61,6 +59,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [HW 05: Object-Oriented Programming, Linked Lists, Iterators and Generators](homework/hw05/hw05.py)
 - [x] [HW 06: Scheme](homework/hw06/hw06.scm) 
 - [x] [HW 07: Scheme Lists](homework/hw07/hw07.scm)
+- [x] [HW 08: Tail Recursion, Interpreters, Scheme](homework/hw08/hw08.scm)
 
 ### Project
 
