@@ -51,6 +51,7 @@ Click the following link to find lab or homework or project.
 - [x] [Lab 08: Midterm Review](lab/lab08/lab08.py)
 - [x] [Lab 10: Scheme](lab/lab10/lab10.scm)
 - [x] [Lab 11: Interpreters](lab/lab11/expr.py)
+- [x] [Lab 12: Tail Recursion, Scheme](lab/lab12/lab12.scm)
 
 ### Homework
 
