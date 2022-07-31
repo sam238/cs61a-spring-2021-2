@@ -59,6 +59,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [HW 06: Scheme](homework/hw06/hw06.scm) 
 - [x] [HW 07: Scheme Lists](homework/hw07/hw07.scm)
 - [x] [HW 08: Tail Recursion, Interpreters, Scheme](homework/hw08/hw08.scm)
+- [x] [HW 09: Regular Expressions, BNF, Macros](homework/hw09/hw09.scm)
 
 
 ### Project
