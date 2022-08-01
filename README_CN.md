@@ -49,6 +49,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 - [x] [Lab 10: Scheme](lab/lab10/lab10.scm)
 - [x] [Lab 11: Interpreters](lab/lab11/expr.py)
 - [x] [Lab 12: Tail Recursion, Scheme](lab/lab12/lab12.scm)
+- [x] [Lab 13: Regular Expressions, BNF](lab/lab13/lab13.py) 
 
 ### Homework
 - [x] [HW 01: Variables & Functions, Control](homework/hw01/hw01.py)
