@@ -41,6 +41,19 @@ def num_splits(s, d):
     12
     """
     "*** YOUR CODE HERE ***"
+    # dif为第二组与第一组的差距
+    def helper(s, dif):
+        if not s:
+            # 差距取绝对值
+            if abs(dif) <= d:
+                return 1
+            else:
+                return 0
+        else:
+            # 减s[0]代表添加第一组，加s[0]添加第二组
+            return helper(s[1:], dif - s[0]) + helper(s[1:], dif + s[0])
+    # 去绝对值计算两次
+    return helper(s, 0) // 2
 
 
 class Account:
