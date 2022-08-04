@@ -53,6 +53,7 @@ Click the following link to find lab or homework or project.
 - [x] [Lab 11: Interpreters](lab/lab11/expr.py)
 - [x] [Lab 12: Tail Recursion, Scheme](lab/lab12/lab12.scm)
 - [x] [Lab 13: Regular Expressions, BNF](lab/lab13/lab13.py) 
+- [x] [Lab 14: Final Review](/lab/lab14/lab14.py)
 
 ### Homework
 

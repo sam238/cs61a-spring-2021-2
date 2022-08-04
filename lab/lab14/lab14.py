@@ -1,4 +1,5 @@
 from operator import add, sub, mul
+from os import link
 
 
 def prune_min(t):
@@ -84,25 +85,35 @@ class Account:
         self.balance = 0
         self.holder = account_holder
         "*** YOUR CODE HERE ***"
+        self.transactions = []
+        self.deposit_count = 0
+        self.withdraw_count = 0
 
     def deposit(self, amount):
         """Increase the account balance by amount, add the deposit
         to the transaction history, and return the new balance.
         """
         "*** YOUR CODE HERE ***"
+        self.balance += amount
+        self.transactions += [('deposit', amount)]
+        self.deposit_count += 1
 
     def withdraw(self, amount):
         """Decrease the account balance by amount, add the withdraw
         to the transaction history, and return the new balance.
         """
         "*** YOUR CODE HERE ***"
+        self.balance -= amount
+        self.transactions += [('withdraw', amount)]
+        self.withdraw_count += 1
 
     def __str__(self):
         "*** YOUR CODE HERE ***"
+        print(f"{self.holder}'s Balance: ${self.balance}")
 
     def __repr__(self):
         "*** YOUR CODE HERE ***"
-
+        print(f"Accountholder: {self.holder}, Deposits: {self.deposit_count}, Withdraws: {self.withdraw_count}")
 
 class CheckingAccount(Account):
     """A bank account that charges for withdrawals.
@@ -132,10 +143,24 @@ class CheckingAccount(Account):
         return Account.withdraw(self, amount + self.withdraw_fee)
 
     "*** YOUR CODE HERE ***"
+    def deposit_check(self, check):
+        # not the same holder or has deposited
+        if self.holder != check.name or check.deposited:
+            print("The police have been notified.")
+        else:
+            self.deposit(check.pay)
+            check.deposited = True
+            return check.pay
+
 
 
 class Check:
     "*** YOUR CODE HERE ***"
+    def __init__(self, name, pay):
+        self.name = name
+        self.pay = pay
+        self.deposited = False
+
 
 
 def align_skeleton(skeleton, code):
@@ -213,7 +238,7 @@ def foldl(link, fn, z):
     if link is Link.empty:
         return z
     "*** YOUR CODE HERE ***"
-    return foldl(______, ______, ______)
+    return foldl(link.rest, fn, fn(z, link.first))
 
 
 def foldr(link, fn, z):
@@ -227,6 +252,9 @@ def foldr(link, fn, z):
     6
     """
     "*** YOUR CODE HERE ***"
+    if link is Link.empty:
+        return z
+    return foldr(link.rest, fn, fn(link.first, z))
 
 
 def filterl(lst, pred):
@@ -236,6 +264,15 @@ def filterl(lst, pred):
     Link(4, Link(2))
     """
     "*** YOUR CODE HERE ***"
+    if lst is Link.empty:
+        return Link.empty
+    if pred(lst.first):
+        # Add item
+        return Link(lst.first, filterl(lst.rest, pred))
+    else:
+        # Not add current item
+        return filterl(lst.rest, pred)
+
 
 
 def reverse(lst):
@@ -249,6 +286,7 @@ def reverse(lst):
     True
     """
     "*** YOUR CODE HERE ***"
+    return foldr(lst, lambda x, y: Link(x, y), Link.empty)
 
 
 identity = lambda x: x
@@ -266,6 +304,9 @@ def foldl2(link, fn, z):
     """
     def step(x, g):
         "*** YOUR CODE HERE ***"
+        def helper(y):
+            return fn(g(y), x)
+        return helper
     return foldr(link, step, identity)(z)
 
 
