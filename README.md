@@ -1,12 +1,12 @@
-# CS61A-Spring2021
+# cs61a-spring-2021
 
 [中文版本](README_CN.md)
 
-Record learning [CS61A(Spring 2021)](https://inst.eecs.berkeley.edu/~cs61a/sp21/). 
+Record learning [cs61a spring 2021](https://inst.eecs.berkeley.edu/~cs61a/sp21/). 
 
 ## Table of Contents
 
-- [CS61A-Spring2021](#cs61a-spring2021)
+- [cs61a-spring-2021](#cs61a-spring-2021)
   - [Table of Contents](#table-of-contents)
   - [Background](#background)
   - [Install](#install)
@@ -30,7 +30,7 @@ The first lesson is SICP.
 ## Install
 
 ```sh
-$ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
+$ git clone https://github.com/wuxueqian14/cs61a-spring-2021.git
 ```
 
 ## Usage
@@ -105,7 +105,7 @@ Click the following link to find lab or homework or project.
 
 ## Contributing
 
-Feel free to dive in! [Open an issue](https://github.com/wuxueqian14/CS61A-Spring2021/issues/new) or submit PRs.
+Feel free to dive in! [Open an issue](https://github.com/wuxueqian14/cs61a-spring-2021/issues/new) or submit PRs.
 
 ### Contributors
 

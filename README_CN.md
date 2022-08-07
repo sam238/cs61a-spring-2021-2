@@ -1,10 +1,10 @@
-# CS61A-Spring2021
+# cs61a-spring-2021
 
-记录学习[CS61A(Spring 2021)](https://inst.eecs.berkeley.edu/~cs61a/sp21/).
+记录学习[cs61a spring 2021](https://inst.eecs.berkeley.edu/~cs61a/sp21/).
 
 ## 目录
 
-- [CS61A-Spring2021](#cs61a-spring2021)
+- [cs61a-spring-2021](#cs61a-spring-2021)
   - [目录](#目录)
   - [背景](#背景)
   - [下载](#下载)
@@ -28,12 +28,12 @@
 ## 下载
 
 ```sh
-$ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
+$ git clone https://github.com/wuxueqian14/cs61a-spring-2021.git
 ```
 
 ## 使用方法
 
-在下面的项目进展中查找你想要的lab/homework/project。
+在下面的项目进展中查找你想要的lab、homework、project并点击查看代码文件。
 
 ## 项目进展
 
@@ -102,7 +102,7 @@ $ git clone https://github.com/wuxueqian14/CS61A-Spring2021.git
 
 ## 贡献
 
-欢迎加入！[提出问题](https://github.com/wuxueqian14/CS61A-Spring2021/issues/new)或者提交PRs.
+欢迎加入！[提出问题](https://github.com/wuxueqian14/cs61a-spring-2021/issues/new)或者提交PRs.
 
 ### 贡献者
 
